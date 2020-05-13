@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="500dp"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:background="@drawable/b">
+
+    <TextView
+        android:textColor="#0A0303"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="سياسه الاستخدام "
+        android:textSize="40sp" />
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="407dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="لايجوز نشر اي كلمات خادشه او الكلمات التي تسئ الي شخص
+يجب علي المستخدم اتباع الشروط وهي عدم مضايقه الغير او ارسال رسايل الي احد الاشخاص وهم لم يريدون ان يتحدثون اليك
+الالتزام بعدم نشر صور غير  صالحه  وبها عري او جنس فاضح
+عند مخالفه الشروط في حاله ذلك   سيتم وقف الاميل الذي يصدر منه هذا الفعل   ولن تتمكن الدخول الي البرنامج مره ثانيه
+
+
+يحق لـ لصاحب البرنامج  تغيير أي بند من الشروط الموجودة في هذه الصفحة في الوقت الذي تراه مناسب ويجب على العميل متابعة الشروط حتى وان لم يصله تنبيه
+لايحق لاي شخص ان يعدل علي عذا البرنامج او الاستغلال به لاي غرص  الا للغرض الذي انشاء له "
+        android:textColor="#6706EE"
+        android:textSize="20sp" />
+
+</LinearLayout>

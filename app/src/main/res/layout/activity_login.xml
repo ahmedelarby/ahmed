@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login"
+    android:id="@+id/constraintsign_up"
+    android:background="@drawable/bac1"
+    >
+
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:id="@+id/l1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="Orientation">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="sign in"
+            android:textSize="90dp"
+            android:textColor="#81A6BE"
+            android:id="@+id/text1"/>
+
+
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/simpleTextInputLayout1"
+        android:layout_width="290dp"
+        android:layout_marginEnd="65dp"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:gravity="left"
+            android:textColorHint="#ff00"
+            android:inputType="textEmailAddress"
+            android:id="@+id/edittextemaillogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/simpleTextInputLayout2"
+        android:layout_width="290dp"
+        android:layout_marginEnd="65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simpleTextInputLayout1"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:gravity="left"
+            android:inputType="number"
+            android:id="@+id/editpasswordlogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your password" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:text="Sign Up"
+        android:background="@drawable/mogama1"
+        android:id="@+id/btnSign_Up"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleTextInputLayout2"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"/>
+
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:text="login"
+        android:background="@drawable/mogama1"
+        android:layout_marginEnd="20dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/btnSign_Up"
+        app:layout_constraintTop_toBottomOf="@id/simpleTextInputLayout2" />
+
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/I_forgot_the_password"
+        android:textSize="15sp"
+        android:textColor="#541CE6"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I forgot the password...?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSign_Up"/>
+
+    <TextView
+        android:id="@+id/Use_policy_and_privacy"
+        android:textColor="#4D25DF"
+        android:textSize="15sp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use policy and privacy"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/I_forgot_the_password"/>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBarlogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="Widget.Material.Light.ProgressBar.Large"
+        android:layout_width="100dp"
+
+        android:layout_height="100dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/t_pProblem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Are you having trouble logging in...? "
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Use_policy_and_privacy"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="#4D25DF"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="300dp"
+    android:background="@drawable/backgrund1"
+    android:layout_gravity="center"
+
+    >
+    <EditText
+        android:gravity="center"
+        android:id="@+id/editTextdiloge_Problememail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Enter your email"
+        android:inputType="textPersonName"
+        android:textColorHint="#131A22" />
+
+    <EditText
+        android:gravity="center"
+        android:id="@+id/editTextdiloge_Problem"
+        android:layout_width="300dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Enter your problem"
+        android:inputType="textPersonName"
+        android:textColorHint="#131A22" />
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <Button
+        android:id="@+id/send_Problem"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/mogama"
+
+
+        android:layout_marginBottom="20dp"
+        android:text="send" />
+    <Button
+
+        android:id="@+id/Cancel_problem"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/mogama"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="Cancel" />
+
+</LinearLayout>
+
+</LinearLayout>

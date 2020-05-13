@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:icon="@drawable/plus1"
+        android:id="@+id/shew"
+        android:title="عرض الصفحه الشخصيه" />
+    <item
+        android:icon="@drawable/b"
+        android:id="@+id/eblak"
+        android:title="ابلاغ عن المستخدم " />
+    <item
+
+        android:id="@+id/bloke"
+        android:title="حظر" ></item>
+
+</menu>

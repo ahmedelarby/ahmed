@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:icon="@drawable/plus1"
+        android:id="@+id/remove"
+        android:title="اخفاءالبوست" />
+    <item
+        android:icon="@drawable/b"
+        android:id="@+id/eblak"
+        android:title="ابلاغ عن البوست" />
+    <item
+
+        android:id="@+id/send_masege"
+        android:title="ارسال رساله بشان البوست" ></item>
+
+</menu>
