@@ -449,6 +449,7 @@ Cancel_problem_signup.setOnClickListener(new View.OnClickListener() {
                     user.put("gender",gender);
                     user.put("ssid",ssid);
 
+                    Toast.makeText(Sign_Up.this, "123", Toast.LENGTH_SHORT).show();
                     user.put("ipAddress",ipAddress);
                     user.put("IMEI",IMEINumber);
 
