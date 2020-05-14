@@ -69,6 +69,7 @@ ProgressBar progressBar;
 
     CollectionReference collectionReference = db.collection("Login");
     CollectionReference collectionReference_p = db.collection("Login_Problem");
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -401,7 +402,15 @@ if (premchion== PackageManager.PERMISSION_GRANTED){
         super.onStart();
 
 
+        if (user != null) {
+            Intent login = new Intent(com.example.myapplicationlast.login.this,MainActivity.class);
+            startActivity(login);
+            finish();
+            // User is signed in
+        } else {
 
+            // No user is signed in
+        }
 
 
 
