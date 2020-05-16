@@ -23,8 +23,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -41,7 +39,7 @@ public class BlankFragment3 extends Fragment {
     DocumentReference rom = db.collection("oll user").document(auth.getCurrentUser().getUid());
 
    String online;
-    CollectionReference collectionReference = db.collection("user online");
+    CollectionReference collectionReference = db.collection("oll user");
     public BlankFragment3() {
         // Required empty public constructor
     }
@@ -112,14 +110,14 @@ public class BlankFragment3 extends Fragment {
 
 
 
-        Map<String, Object> useronline = new HashMap<>();
+      /*  Map<String, Object> useronline = new HashMap<>();
 
 
         useronline.put("online",online);
-        useronline.put("name",get_Name);
+
 
         // db.collection("user").document(auth.getCurrentUser().getUid()).set(user)
-        db.collection("user online").document(auth.getCurrentUser().getUid()).set(useronline);
+        db.collection("oll user").document(auth.getCurrentUser().getUid()).set(useronline);*/
 
 
 

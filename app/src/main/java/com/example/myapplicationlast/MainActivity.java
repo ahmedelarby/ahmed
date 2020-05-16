@@ -1,10 +1,13 @@
 package com.example.myapplicationlast;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TabItem first ,scand,thred;
     pageAdapter adapter;
     TextView name;
-    TextView Email;
+    ImageView imageView;
     FirebaseAuth auth  =FirebaseAuth. getInstance();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        setTitle(" ");
         pager = findViewById(R.id.viewpager1);
         layout = findViewById(R.id.tablayout);
         first = findViewById(R.id.firstitem);
@@ -61,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View headerLayout = navigationView.getHeaderView(0);
       //add textview heder
          name=headerLayout.findViewById(R.id.textViewname);
-        Email=headerLayout.findViewById(R.id.textviewEmail);
+         imageView= headerLayout.findViewById(R.id.post);
+
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.off);
         drawerLayout.addDrawerListener(toggle);
         toggle.setDrawerIndicatorEnabled(true);
@@ -89,8 +95,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(layout));
+
+
+imageView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent image_porfile = new Intent(Intent.ACTION_GET_CONTENT);
+        image_porfile.setType("image/*");
+
+        startActivityForResult(Intent.createChooser(image_porfile,"اختر مكان الصوره "), 123);
+
+
+
+
+
+    }
+});
+
+
+
+
+
+
+
+
+
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==123 && resultCode == Activity.RESULT_OK && data!=null && data.getData()!=null){
+
+            imageView.setImageURI(data.getData());
+            Uri image = data.getData();
+          //  int meda = MediaStore.Images.Media.getBitmap(getContentResolver(),image);
+
+
+        }
+
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -105,9 +150,10 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(layout
 
             startActivity(out);
             finish();
-        }else if (menuItem.getItemId()==R.id.Night_mode){
+        }else if (menuItem.getItemId()==R.id.settings){
 
-            drawerLayout.setBackgroundResource(R.drawable.back_nith);
+        Intent settings = new Intent(getApplicationContext(),Settings.class);
+        startActivity(settings);
 
 
         }
@@ -137,8 +183,7 @@ pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(layout
                     String  get_Name = documentSnapshot.getString("name");
 
                       name.setText(get_Name);
-                    String  get_Email = documentSnapshot.getString("Email");
-                            Email.setText(get_Email);
+
                 }
 
 

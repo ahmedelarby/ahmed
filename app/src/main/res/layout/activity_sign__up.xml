@@ -134,7 +134,8 @@
         android:id="@+id/spinner"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        
+        android:backgroundTint="@color/cardview_shadow_end_color"
+       app:arrowTint="@color/Blake"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"

@@ -184,6 +184,7 @@ ProgressBar progressBar;
                 Regster.startAnimation(animFadeIn);
             Intent Reg = new Intent(login.this,Sign_Up.class);
             startActivity(Reg);
+            finish();
 
          overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
@@ -401,16 +402,21 @@ if (premchion== PackageManager.PERMISSION_GRANTED){
     protected void onStart() {
         super.onStart();
 
+       if (user!=null){
+           if (user.isEmailVerified()){
+               Intent login= new Intent(this,MainActivity.class);
+               startActivity(login);
+                finish();
 
-        if (user != null) {
-            Intent login = new Intent(com.example.myapplicationlast.login.this,MainActivity.class);
-            startActivity(login);
-            finish();
-            // User is signed in
-        } else {
+           }else {
+              // Toast.makeText(this, "غير مسموح لك بلدخول حتي تفعل الاميل", Toast.LENGTH_SHORT).show();
+           }
 
-            // No user is signed in
-        }
+
+
+
+
+       }
 
 
 
