@@ -2,24 +2,54 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="#2980B9"
-    android:orientation="vertical"
-    >
-<TextView
-    android:layout_marginTop="5dp"
-    android:textSize="15sp"
-    android:id="@+id/namepohto"
-    android:textStyle="bold"
-    android:layout_marginEnd="160dp"
-    android:text="personal picture"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/post"/>
+    android:background="#187AB8"
+    android:orientation="vertical">
+    <ImageView
+        android:id="@+id/back_grund"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:src="@drawable/c"
+        android:scaleType="centerCrop"
+        android:scaleX="1"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
+        android:textStyle="bold"
+        android:id="@+id/chenge_back_gruand"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="150dp"
+        android:text="تغير صوره الغلاف"
+        android:textColor="#C6F00B"
+        android:background="#008BD7FF"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/namepohto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="160dp"
+        android:text="personal picture"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="#C6F00B"
+        app:layout_constraintBottom_toTopOf="@id/post"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/post"
@@ -39,14 +69,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="ahmedelarby"
-        android:textStyle="bold|italic"
-        android:textColor="#D0040405"
+        android:textColor="#C6F00B"
         android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toEndOf="@+id/post"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

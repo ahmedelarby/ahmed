@@ -39,7 +39,7 @@ public class BlankFragment3 extends Fragment {
     DocumentReference rom = db.collection("oll user").document(auth.getCurrentUser().getUid());
 
    String online;
-    CollectionReference collectionReference = db.collection("oll user");
+    CollectionReference collectionReference = db.collection("oll user_Profil");
     public BlankFragment3() {
         // Required empty public constructor
     }

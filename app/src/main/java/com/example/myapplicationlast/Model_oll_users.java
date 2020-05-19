@@ -4,20 +4,18 @@ public class Model_oll_users {
 
     String name;
     String online;
-    int sora_user;
+    String image;
     int menu;
 
-
-    public Model_oll_users() {}
-
-
-    public Model_oll_users(String name, String online, int sora_user, int menu) {
-        this.name = name;
-        this.online = online;
-        this.sora_user = sora_user;
-        this.menu = menu;
+    public Model_oll_users() {
     }
 
+    public Model_oll_users(String name, String online, String image, int menu) {
+        this.name = name;
+        this.online = online;
+        this.image = image;
+        this.menu = menu;
+    }
 
     public String getName() {
         return name;
@@ -35,12 +33,12 @@ public class Model_oll_users {
         this.online = online;
     }
 
-    public int getSora_user() {
-        return sora_user;
+    public String getImage() {
+        return image;
     }
 
-    public void setSora_user(int sora_user) {
-        this.sora_user = sora_user;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getMenu() {

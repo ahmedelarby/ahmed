@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class Shew_Adapter extends RecyclerView.Adapter<Shew_Adapter.ViewHolder>{
@@ -46,7 +48,7 @@ public class Shew_Adapter extends RecyclerView.Adapter<Shew_Adapter.ViewHolder>{
         holder.online.setText(item.getOnline());
 
         holder.textmenu.setImageResource(item.getMenu());
-        holder.sora_user.setImageResource(item.getSora_user());
+        Picasso.with(context).load(item.getImage()).fit().centerCrop().into(holder.sora_user);
         if (onItemClickListener != null)
             holder.textmenu.setOnClickListener(new View.OnClickListener() {
                 @Override
