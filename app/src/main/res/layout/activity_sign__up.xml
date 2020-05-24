@@ -3,80 +3,67 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintsign_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sign_Up"
-    android:id="@+id/constraintsign_up"
     android:background="@drawable/bac1"
-    >
-
-    <LinearLayout
-        android:id="@+id/l1"
-        android:layout_width="402dp"
-        android:layout_height="143dp"
-        android:layout_marginTop="10dp"
+    tools:context=".Sign_Up">
+<TextView
+    android:textColor="#F7212946"
+    android:id="@+id/textSignUP"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Sign Up"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Orientation">
-
-        <TextView
-
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="sign up"
-            android:textColor="#81A6BE"
-            android:textSize="90dp" />
-    </LinearLayout>
-
+    android:textSize="100dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/simpleTextInputLayout1"
         android:layout_width="290dp"
-        android:layout_marginEnd="65dp"
-
         android:layout_height="wrap_content"
+
         android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l1"
+        app:layout_constraintTop_toBottomOf="@+id/textSignUP"
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:gravity="left"
-            android:textColorHint="#ff00"
-            android:inputType="textEmailAddress"
             android:id="@+id/edittextemail_Signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Your Email" />
+            android:gravity="left"
+            android:hint="Enter Your Email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#ff00" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/simpleTextInputLayout2"
         android:layout_width="290dp"
-        android:layout_marginEnd="65dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
-        app:passwordToggleEnabled="true"
+        android:layout_marginEnd="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/simpleTextInputLayout1"
+        app:passwordToggleEnabled="true"
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:gravity="left"
-            android:inputType="number"
             android:id="@+id/editpassword_Signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Your password" />
+            android:gravity="left"
+            android:hint="Enter Your password"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -85,8 +72,8 @@
         android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginEnd="65dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="65dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/simpleTextInputLayout2"
@@ -129,14 +116,14 @@
 
 
     <org.angmarch.views.NiceSpinner
-        android:background="@drawable/bac1"
-        android:layout_margin="16dp"
         android:id="@+id/spinner"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:backgroundTint="@color/cardview_shadow_end_color"
-       app:arrowTint="@color/Blake"
+        android:layout_margin="16dp"
         android:layout_marginTop="20dp"
+        android:background="@drawable/bac1"
+        android:backgroundTint="@color/cardview_shadow_end_color"
+        app:arrowTint="@color/Blake"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,12 +131,12 @@
 
     <TextView
         android:id="@+id/text_Problem_signup"
-        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textColor="#4D25DF"
         android:text="If you have problems registering, let us know here"
+        android:textColor="#4D25DF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

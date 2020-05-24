@@ -10,9 +10,9 @@
     android:background="@drawable/bac">
 
     <EditText
-        android:hint="enter your email"
-        android:textColorHint="#96F006"
-        android:id="@+id/edittextemail_updet"
+        android:textColorHint="#B4F30A"
+        android:hint="Enter your name"
+        android:id="@+id/updet_name1"
         android:layout_width="290dp"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
@@ -23,17 +23,16 @@
 
     <Button
         android:layout_marginTop="50dp"
-        android:background="#433CFF69"
-        android:id="@+id/up_em"
+        android:background="#3C8CFF62"
+        android:id="@+id/up_name"
         android:layout_width="290dp"
         android:layout_height="50dp"
-        android:text="updet"
+        android:text="updet_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittextemail_updet"
-        app:layout_constraintVertical_bias="0.708" />
+        app:layout_constraintTop_toBottomOf="@+id/updet_name1"
+        app:layout_constraintVertical_bias="0.731" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

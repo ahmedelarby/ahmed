@@ -3,8 +3,11 @@ package com.example.myapplicationlast;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -27,6 +30,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -36,11 +40,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.UUID;
 
 import static android.content.Context.WIFI_SERVICE;
 
@@ -62,10 +70,16 @@ public class BlankFragment1 extends Fragment {
     String ssid;
     String ipAddress;
     String IMEINumber;
-    String online;
+    String get_Email;
+    String get_image_profile;
+    String get_gender;
+    String time_open;
+    StorageReference mStorageRef;
+    CollectionReference collectionReference1 = db.collection("oll user_post_pohto");
 
-
+    String get_Image;
     FirebaseAuth auth  =FirebaseAuth. getInstance();
+
     DocumentReference rom = db.collection("oll user").document(auth.getCurrentUser().getUid());
     public BlankFragment1() {
         // Required empty public constructor
@@ -75,10 +89,7 @@ public class BlankFragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        online="on";
-        if (online=="on"){
-            online="on";
-        }else {online="off";}
+
         // Inflate the layout for this fragment
       View view =  inflater.inflate(R.layout.fragment_blank_fragment1, container, false);
         recyclerView = view.findViewById(R.id.rec3);
@@ -105,6 +116,7 @@ public class BlankFragment1 extends Fragment {
 
 
 
+        mStorageRef = FirebaseStorage.getInstance().getReference().child(auth.getCurrentUser().getUid());
 
 
 //get time
@@ -153,7 +165,10 @@ public class BlankFragment1 extends Fragment {
                                 post();
                                 break;
                             case R.id.Addmenuphoto:
-                                Toast.makeText(getContext(), "تحت الانشاء", Toast.LENGTH_SHORT).show();
+                                Intent open_Stoduo = new Intent(Intent.ACTION_GET_CONTENT);
+                                open_Stoduo.setType("image/*");
+                                startActivityForResult(Intent.createChooser(open_Stoduo,"اختر مكان الصوره "), 1);
+
                                 break;
                             case R.id.Publishing_policy:
                                 Toast.makeText(getContext(), "جاري العمل عليها ", Toast.LENGTH_SHORT).show();
@@ -198,6 +213,47 @@ public class BlankFragment1 extends Fragment {
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==1&&resultCode== Activity.RESULT_OK&&data!=null&&data.getData()!=null){
+            Uri image_post = data.getData();
+            StorageReference file = mStorageRef.child("image_Post"+ UUID.randomUUID().toString());
+            file.putFile(image_post).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    file.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Model_Recycler data1234 = new Model_Recycler();
+                            data1234.setName(get_Name);
+                            data1234.setSora(get_Image);
+                            data1234.setPost_photo(String.valueOf(uri));
+                            data1234.setTime(Time_Fragment);
+                            data1234.setIpAddress(ipAddress);
+                            data1234.setWifiInfo(ssid);
+                            data1234.setIMEIphone(IMEINumber);
+
+
+
+                            collectionReference.add(data1234);
+
+
+
+
+                        }
+                    });
+                }
+            });
+
+
+
+
+
+        }
+    }
+
     @SuppressLint("MissingPermission")
     public void myTelephon(){
 
@@ -234,6 +290,11 @@ public class BlankFragment1 extends Fragment {
                     Model_Recycler data123 = new Model_Recycler();
                     data123.setName(get_Name);
                     data123.setWord(Post);
+                    data123.setEmail(get_Email);
+                    data123.setGender(get_gender);
+                    data123.setImage_profile(get_image_profile);
+                    data123.setTime_open(time_open);
+                    data123.setSora(get_Image);
                     data123.setTime(Time_Fragment);
                     data123.setIpAddress(ipAddress);
                     data123.setWifiInfo(ssid);
@@ -301,7 +362,11 @@ rom.addSnapshotListener(new EventListener<DocumentSnapshot>() {
         if (documentSnapshot.exists()) {
 
                 get_Name = documentSnapshot.getString("name");
-
+                get_Email = documentSnapshot.getString("Email");
+                time_open = documentSnapshot.getString("time_open");
+                get_image_profile = documentSnapshot.getString("image_profile");
+                get_gender = documentSnapshot.getString("gender");
+                get_Image = documentSnapshot.getString("image");
         }
 
 

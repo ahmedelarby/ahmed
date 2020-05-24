@@ -5,15 +5,15 @@
 
     <item
         android:icon="@drawable/plus1"
-        android:id="@+id/remove"
-        android:title="اخفاءالبوست" />
+        android:id="@+id/Shew_Profile"
+        android:title="عرض الصفحه الشخصيه" />
     <item
         android:icon="@drawable/b"
-        android:id="@+id/eblak"
+        android:id="@+id/ablage"
         android:title="ابلاغ عن البوست" />
     <item
 
-        android:id="@+id/send_masege"
+        android:id="@+id/send_masege_f1"
         android:title="ارسال رساله بشان البوست" ></item>
 
 </menu>

@@ -8,13 +8,19 @@ public class Model_Recycler {
     String ipAddress;
     String wifiInfo;
     String IMEIphone;
-    int sora;
+    String sora;
+    String post_photo;
     int sora1;
+    String Email;
+    String gender;
+    String image_profile;
+    String time_open;
+
 
     public Model_Recycler() {
     }
 
-    public Model_Recycler(String name, String time, String word, String ipAddress, String wifiInfo, String IMEIphone, int sora, int sora1) {
+    public Model_Recycler(String name, String time, String word, String ipAddress, String wifiInfo, String IMEIphone, String sora, String post_photo, int sora1, String email, String gender, String image_profile, String time_open) {
         this.name = name;
         this.time = time;
         this.word = word;
@@ -22,7 +28,12 @@ public class Model_Recycler {
         this.wifiInfo = wifiInfo;
         this.IMEIphone = IMEIphone;
         this.sora = sora;
+        this.post_photo = post_photo;
         this.sora1 = sora1;
+        this.Email = email;
+        this.gender = gender;
+        this.image_profile = image_profile;
+        this.time_open = time_open;
     }
 
     public String getName() {
@@ -73,12 +84,20 @@ public class Model_Recycler {
         this.IMEIphone = IMEIphone;
     }
 
-    public int getSora() {
+    public String getSora() {
         return sora;
     }
 
-    public void setSora(int sora) {
+    public void setSora(String sora) {
         this.sora = sora;
+    }
+
+    public String getPost_photo() {
+        return post_photo;
+    }
+
+    public void setPost_photo(String post_photo) {
+        this.post_photo = post_photo;
     }
 
     public int getSora1() {
@@ -87,5 +106,37 @@ public class Model_Recycler {
 
     public void setSora1(int sora1) {
         this.sora1 = sora1;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getImage_profile() {
+        return image_profile;
+    }
+
+    public void setImage_profile(String image_profile) {
+        this.image_profile = image_profile;
+    }
+
+    public String getTime_open() {
+        return time_open;
+    }
+
+    public void setTime_open(String time_open) {
+        this.time_open = time_open;
     }
 }

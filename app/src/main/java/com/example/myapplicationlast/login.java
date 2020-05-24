@@ -50,7 +50,7 @@ public class login extends AppCompatActivity {
 EditText password;
 Button  login;
 Button  Regster;
- AlertDialog dialog ,dialog1;
+ AlertDialog dialog ,dialog1,dialog_updet_email;
  TextView problem;
 TextView I_forgot_the_password;
 TextView Use_policy_and_privacy;
@@ -64,6 +64,7 @@ ProgressBar progressBar;
     String IMEINumber;
     Animation animFadeIn;
     ConstraintLayout consterntlogin;
+    FirebaseAuth auth = FirebaseAuth.getInstance();
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -194,6 +195,67 @@ ProgressBar progressBar;
         I_forgot_the_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder builder =new AlertDialog.Builder(login.this);
+                View view = getLayoutInflater().inflate(R.layout.dilog_password_update,null);
+                builder.setTitle("update_password").setIcon(R.drawable.c);
+
+                EditText emailUpdet = (EditText) view.findViewById(R.id.edittextemail_updet1);
+                Button  up_em1 =(Button) view.findViewById(R.id.up_em1);
+                up_em1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String up1= emailUpdet.getText().toString().trim();
+                        if (up1.isEmpty()){
+
+                            emailUpdet.setError("انه فارغ ");
+                            return;
+                        } else
+                            auth.sendPasswordResetEmail(up1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if (task.isSuccessful())
+                                        Toasty.info(getApplicationContext(), "Go to your Email and enter link", 9000, true).show();
+
+
+
+                                    else {
+
+                                        Toasty.error(getApplicationContext(), ""+task.getException().getMessage(), 9000, true).show();
+                                    }
+
+
+                                }
+                            });
+
+
+
+
+
+                        dialog_updet_email.dismiss();
+
+
+
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+                builder.setView(view);
+                dialog_updet_email = builder.create();
+                dialog_updet_email.show();
+
+
+
 
             }
         });
@@ -304,7 +366,7 @@ if (premchion== PackageManager.PERMISSION_GRANTED){
         pass= password.getText().toString().trim();
         if (email.isEmpty()){ Email.setError("Email is Empty");;return;}
         else if (pass.isEmpty()){password.setError("password is Empty");return;}
-        else if (pass.length()<8){password.setError("Password is not less than 6 characters ");return;}
+        else if (pass.length()<6){password.setError("Password is not less than 6 characters ");return;}
         else
             progressBar.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -398,6 +460,13 @@ if (premchion== PackageManager.PERMISSION_GRANTED){
     }
 
 
+
+
+
+
+
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -417,7 +486,6 @@ if (premchion== PackageManager.PERMISSION_GRANTED){
 
 
        }
-
 
 
 

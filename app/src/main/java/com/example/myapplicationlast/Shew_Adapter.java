@@ -64,9 +64,7 @@ public class Shew_Adapter extends RecyclerView.Adapter<Shew_Adapter.ViewHolder>{
                         public boolean onMenuItemClick(MenuItem item) {
                             int id = item.getItemId();
                             switch (id){
-                                case R.id.shew:
-                                    Toast.makeText(context, "جاري الازاله ", Toast.LENGTH_SHORT).show();
-                                    break;
+
                                 case R.id.eblak:
                                     Toast.makeText(context, "تحت الانشاء", Toast.LENGTH_SHORT).show();
                                     break;
@@ -97,6 +95,9 @@ public class Shew_Adapter extends RecyclerView.Adapter<Shew_Adapter.ViewHolder>{
                 @Override
                 public void onClick(View v) {
                     onname.onItemClick();
+
+
+
                 }
             });
     }

@@ -31,6 +31,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -52,16 +53,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TabItem first ,scand,thred;
     pageAdapter adapter;
     TextView name;
-    ImageView imageView;
+    TextView textEmail;
+    ImageView imageView1;
+    Button add;
     FirebaseAuth auth  =FirebaseAuth. getInstance();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Uri uri;
-   Button chenge_back_grund;
+    String online11;
+    DocumentReference rom141 = db.collection("oll user").document(auth.getCurrentUser().getUid());
+
+    Button chenge_back_grund;
    ImageView back_gruond;
     StorageReference mStorageRef;
      StorageReference mStorageRef2;
     DocumentReference rom = db.collection("oll user").document(auth.getCurrentUser().getUid());
-    DocumentReference rom1 = db.collection("oll user_Profil").document(auth.getCurrentUser().getUid());
+    DocumentReference rom1 = db.collection("oll user").document(auth.getCurrentUser().getUid());
     DocumentReference rom2 = db.collection("oll user_Profil back_ground").document(auth.getCurrentUser().getUid());
     String  get_Name;
     String Time_Fragment1;
@@ -86,7 +92,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View headerLayout = navigationView.getHeaderView(0);
       //add textview heder
          name=headerLayout.findViewById(R.id.textViewname);
-         imageView= headerLayout.findViewById(R.id.post);
+        textEmail=headerLayout.findViewById(R.id.textEmail);
+         imageView1= headerLayout.findViewById(R.id.post);
+         add = headerLayout.findViewById(R.id.add_photo);
         chenge_back_grund = headerLayout.findViewById(R.id.chenge_back_gruand);
         back_gruond= headerLayout.findViewById(R.id.back_grund);
         toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.off);
@@ -118,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(layout));
 
 
-imageView.setOnClickListener(new View.OnClickListener() {
+add.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent image_porfile = new Intent(Intent.ACTION_GET_CONTENT);
@@ -186,9 +194,9 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
 
                             map.put("image", String.valueOf(uri));
                             map.put("name",get_Name);
-                            map.put("time",Time_Fragment1);
 
-                            rom1.set(map);
+
+                            rom1.set(map, SetOptions.merge());
 
 
                         }
@@ -231,8 +239,8 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
                         public void onSuccess(Uri uri) {
                             HashMap<String,String> map = new HashMap<>();
 
-                            map.put("image", String.valueOf(uri));
-                            rom2.set(map);
+                            map.put("image_profile", String.valueOf(uri));
+                            rom1.set(map,SetOptions.merge());
 
 
                         }
@@ -286,15 +294,13 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         drawerLayout.closeDrawer(GravityCompat.START);
 
-        if (menuItem.getItemId()== R.id.page_main) {
-            Intent intent =new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(intent);
-        }else if (menuItem.getItemId()==R.id.sign_out){
+         if (menuItem.getItemId()==R.id.sign_out){
             FirebaseAuth.getInstance().signOut();
             Intent out = new Intent(MainActivity.this, login.class);
 
             startActivity(out);
             finish();
+
         }else if (menuItem.getItemId()==R.id.settings){
 
         Intent settings = new Intent(getApplicationContext(),Settings.class);
@@ -326,9 +332,9 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
                 if (documentSnapshot.exists()) {
 
                      get_Name = documentSnapshot.getString("name");
-
+                     String textEmail1= documentSnapshot.getString("Email");
                       name.setText(get_Name);
-
+                      textEmail.setText(textEmail1);
                 }
 
 
@@ -349,9 +355,9 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
                 if (documentSnapshot.exists()) {
 
                     String  getphoto = documentSnapshot.getString("image");
-
-                    Picasso.with(getApplicationContext()).load(getphoto).into(imageView);
-
+                    if (getphoto!=null) {
+                        Picasso.with(getApplicationContext()).load(getphoto).into(imageView1);
+                    }else {imageView1.setImageResource(R.drawable.user);}
                 }
 
 
@@ -369,7 +375,7 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
 
 
 
-        rom2.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+        rom1.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
 
@@ -380,10 +386,14 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
                 }
                 if (documentSnapshot.exists()) {
 
-                    String  getphoto1 = documentSnapshot.getString("image");
+                    String  getphoto1 = documentSnapshot.getString("image_profile");
+                    if (getphoto1!=null) {
+                        Picasso.with(getApplicationContext()).load(getphoto1).into(back_gruond);
+                    }else {
+                        back_gruond.setImageResource(R.drawable.b);
 
-                    Picasso.with(getApplicationContext()).load(getphoto1).into(back_gruond);
 
+                    }
                 }
 
 
@@ -398,7 +408,13 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
         });
 
 
+        online11="on";
+        if (online11=="on"){
 
+            HashMap<String,String> map141 = new HashMap<>();
+            map141.put("online","on");
+            rom141.set(map141, SetOptions.merge());
+        }else {}
 
 
 
@@ -409,4 +425,42 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
 
 
     }
+
+
+
+
+
+
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (online11=="on"){
+            HashMap<String,String> map11 = new HashMap<>();
+            map11.put("online","off");
+            rom141.set(map11,SetOptions.merge());
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

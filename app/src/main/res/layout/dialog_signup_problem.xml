@@ -3,11 +3,12 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="300dp"
-    android:background="@drawable/backgrund1"
+    android:background="@drawable/bac"
     android:layout_gravity="center"
 
     >
     <EditText
+
         android:gravity="center"
         android:id="@+id/signup_Problememail"
         android:layout_width="300dp"
@@ -17,7 +18,7 @@
         android:ems="10"
         android:hint="Enter your email"
         android:inputType="textPersonName"
-        android:textColorHint="#131A22" />
+        android:textColorHint="#ADE907" />
 
     <EditText
         android:gravity="center"
@@ -29,7 +30,7 @@
         android:ems="10"
         android:hint="Enter your problem"
         android:inputType="textPersonName"
-        android:textColorHint="#131A22" />
+        android:textColorHint="#ADE907" />
 
     <LinearLayout
         android:layout_marginStart="10dp"

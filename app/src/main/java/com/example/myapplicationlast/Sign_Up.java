@@ -59,6 +59,7 @@ public class Sign_Up extends AppCompatActivity {
     EditText email,pass;
     ProgressBar bar;
     FirebaseAuth auth;
+
     Button register;
     TextView hello;
     EditText name;
@@ -69,6 +70,9 @@ public class Sign_Up extends AppCompatActivity {
     TextView text_Problem_signup;
     String ssid;
     String ipAddress;
+
+
+
     private static final int PERMISSION_READ_STATTE = 123;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference collectionReference22 = db.collection("problem_sign_up");
@@ -90,6 +94,7 @@ public class Sign_Up extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         isNetworkConnected();
         text_Problem_signup = (TextView)findViewById(R.id.text_Problem_signup);
+
         // خاص  بلفاير بيس كلود
 
       /*  db = FirebaseFirestore.getInstance();
@@ -363,8 +368,9 @@ Cancel_problem_signup.setOnClickListener(new View.OnClickListener() {
 
 
 
-
     }
+
+
 
     @SuppressLint("MissingPermission")
     public void myTelephon(){
@@ -444,7 +450,7 @@ Cancel_problem_signup.setOnClickListener(new View.OnClickListener() {
                     Map<String, Object> user = new HashMap<>();
                     user.put("Email",Email);
                     user.put("password",password);
-                    user.put("time",time);
+                    user.put("time_open",time);
                     user.put("name", Name);
                     user.put("gender",gender);
                     user.put("ssid",ssid);

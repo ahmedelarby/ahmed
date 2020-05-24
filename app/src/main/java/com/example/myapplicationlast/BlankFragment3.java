@@ -39,7 +39,7 @@ public class BlankFragment3 extends Fragment {
     DocumentReference rom = db.collection("oll user").document(auth.getCurrentUser().getUid());
 
    String online;
-    CollectionReference collectionReference = db.collection("oll user_Profil");
+    CollectionReference collectionReference = db.collection("oll user");
     public BlankFragment3() {
         // Required empty public constructor
     }
@@ -69,12 +69,13 @@ public class BlankFragment3 extends Fragment {
             @Override
             public void onItemClick() {
                 Toast.makeText(getContext(), "sor", Toast.LENGTH_SHORT).show();
+
+
             }
         });
         linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(linearLayoutManager);
-
 
 
 
@@ -100,7 +101,7 @@ public class BlankFragment3 extends Fragment {
                 }
                 if (documentSnapshot.exists()) {
 
-                    get_Name = documentSnapshot.getString("name");
+                   // get_Name = documentSnapshot.getString("name");
 
                 }
 

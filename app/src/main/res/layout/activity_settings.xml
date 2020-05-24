@@ -4,39 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0373C2"
     tools:context=".Settings">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="#AEB6BF"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#008BD7FF">
 
 
         <Button
-
             android:id="@+id/Email_update"
+
             android:layout_width="match_parent"
             android:layout_height="46dp"
-            android:background="#AEB6BF"
+            android:background="#008BD7FF"
             android:gravity="start"
             android:padding="10dp"
-            android:text="Email update"
+            android:text="تحديث  البريد الالكتروني"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
+            android:id="@+id/text_btn1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="#0053A4FF"
+            android:padding="10dp"
+            android:text="If you update the email, you will not be able to log in to the previous email"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Email_update"
-            android:background="#AEB6BF"
-            android:text="If you update the email, you will not be able to log in to the previous email"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Email_update" />
+
+        <Button
+            android:id="@+id/pass_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0078B8FF"
+            android:gravity="start"
+            android:padding="10dp"
+            android:text="تحديث كلمه المرور"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_btn1" />
 
 
+        <TextView
+            android:id="@+id/text_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#007DB9FF"
+            android:padding="10dp"
+            android:text="If you update your password, you will not be able to log in to the previous password. Check your email address and create your new password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pass_update" />
+
+        <Button
+            android:id="@+id/chenge_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#007DB9FF"
+            android:gravity="start"
+            android:padding="10dp"
+            android:text="تغير الاسم "
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/text_btn2" />
 
 
-
-
+        <com.google.android.gms.ads.AdView
+            ads:layout_constraintStart_toStartOf="parent"
+            ads:layout_constraintTop_toBottomOf="@id/chenge_name"
+            ads:layout_constraintEnd_toEndOf="parent"
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-8403267465820162/8290132646">
+        </com.google.android.gms.ads.AdView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
