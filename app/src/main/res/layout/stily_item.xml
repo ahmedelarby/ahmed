@@ -10,14 +10,15 @@
     android:orientation="vertical"
     app:cardBackgroundColor="#3B0C4B29"
     app:cardCornerRadius="20dp"
-    app:cardElevation="10dp"
+    app:cardElevation="5dp"
     app:contentPadding="5dp"
 
     >
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
+        android:id="@+id/c1"
 
         android:layout_height="wrap_content">
 
@@ -60,20 +61,39 @@
             app:layout_constraintStart_toEndOf="@id/sora"
             app:layout_constraintTop_toBottomOf="@id/name" />
 
-        <TextView
-            android:id="@+id/word"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:text="word"
-            android:textSize="20sp"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.436"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/time"
-            app:layout_constraintVertical_bias="0.139" />
+
+    <TextView
+        android:padding="10dp"
+        android:id="@+id/word"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="word"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+
+        android:textSize="15sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/c1"
+        app:layout_constraintStart_toStartOf="@id/c1"
+        app:layout_constraintTop_toBottomOf="@id/time"
+        app:layout_constraintVertical_bias="0.056" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <ImageView
             android:id="@+id/btn_menu"
@@ -89,15 +109,17 @@
         <ImageView
 
             android:id="@+id/post_photo"
+            android:layout_width="380dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="86dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/c"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="86dp"
-            android:layout_width="380dp"
-            android:src="@drawable/c"
-            android:scaleType="centerInside"
-            android:layout_height="350dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

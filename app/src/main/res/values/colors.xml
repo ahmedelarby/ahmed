@@ -6,6 +6,28 @@
     <color name="Blake">#000000</color>
 
     <color name="red">#E70505</color>
+    <color name="red1">#E70808</color>
 
+    <color name="Aqua">#5DADE2</color>
+
+    <color name="blue">#2980B9</color>
+
+    <color name="black">#030202</color>
+
+    <color name="green">#18D106</color>
+
+    <color name="yellow">#E5F305</color>
+
+    <color name="azure">#0E3A63</color>
+
+    <color name="silver">#A6ACAF</color>
+
+    <color name="orange">#F39C12</color>
+
+    <color name="purple">#901EC0</color>
+
+    <color name="pea">#58D68D</color>
+
+    <color name="white">#FCFCFC</color>
 
 </resources>

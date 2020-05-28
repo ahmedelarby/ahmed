@@ -2,6 +2,7 @@ package com.example.myapplicationlast;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ public class Show_Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show__profile);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);
+
         name_profil= findViewById(R.id.name_profil);
         photo_profile= findViewById(R.id.photo_profile);
         Image_Profil_back= findViewById(R.id.Image_Profil_back);
@@ -66,4 +69,32 @@ public class Show_Profile extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#024B7E"
+    tools:context=".post">
+
+    <TextView
+        android:id="@+id/textm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="اكتب هنا المنشور"
+        android:textColor="#E5F503"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/naher"
+        android:layout_width="169dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/m_s_btn"
+        android:text="نشر"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/elgaa"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spiner"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <Button
+        android:id="@+id/elgaa"
+        android:layout_width="181dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/m_s_btn"
+        android:text="الغاء"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spiner"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <EditText
+        android:id="@+id/posttext"
+        android:layout_width="370dp"
+        android:layout_height="349dp"
+        android:background="#9ACDE2"
+        android:gravity="center"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textm" />
+
+
+
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/posttext">
+
+        <Button
+            android:id="@+id/bold"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="Bold"
+            app:layout_constraintEnd_toStartOf="@id/nobold"
+            app:layout_constraintStart_toEndOf="@id/nobold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posttext" />
+
+        <Button
+            android:id="@+id/nobold"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="no Bold"
+            app:layout_constraintEnd_toStartOf="@id/plas"
+            app:layout_constraintStart_toEndOf="@id/bold"
+            app:layout_constraintTop_toBottomOf="@id/posttext" />
+
+        <Button
+            android:id="@+id/plas"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="+"
+            app:layout_constraintEnd_toStartOf="@id/mins"
+            app:layout_constraintStart_toEndOf="@id/nobold"
+            app:layout_constraintTop_toBottomOf="@id/posttext" />
+
+        <Button
+            android:id="@+id/mins"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="-"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/Line"
+            app:layout_constraintStart_toEndOf="@id/plas"
+            app:layout_constraintTop_toBottomOf="@id/posttext" />
+
+        <Button
+            android:id="@+id/Line"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="Line"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/starttext"
+            app:layout_constraintStart_toEndOf="@id/mins"
+            app:layout_constraintTop_toBottomOf="@id/posttext" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/colortext"
+        android:layout_width="65dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="color text"
+        android:textColor="#D3F509"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/spiner1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="background"
+        android:textColor="#E0D506"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toStartOf="@+id/spiner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colortext"
+        tools:ignore="MissingConstraints" />
+
+    <Spinner
+        android:id="@+id/spiner1"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/blue"
+        android:backgroundTintMode="screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1" />
+
+    <Spinner
+        android:id="@+id/spiner"
+        android:layout_width="300dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/Aqua"
+        android:backgroundTintMode="screen"
+        android:gravity="left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spiner1" />
+
+
+
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l2">
+
+        <Button
+            android:id="@+id/noline"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="noline" />
+
+        <Button
+            android:id="@+id/endtext"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/starttext"
+            app:layout_constraintTop_toBottomOf="@id/posttext" />
+
+        <Button
+            android:id="@+id/starttext"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="Start"
+            app:layout_constraintEnd_toStartOf="@id/endtext"
+            app:layout_constraintStart_toEndOf="@id/Line"
+            app:layout_constraintTop_toBottomOf="@id/posttext" />
+
+        <Button
+            android:id="@+id/centertext"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="center" />
+
+        <Button
+            android:id="@+id/caler"
+            android:layout_width="60dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/m_s_btn"
+            android:text="caler" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

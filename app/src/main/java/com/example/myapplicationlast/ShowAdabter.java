@@ -24,7 +24,12 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
     OnItemClickListener onItemClickListener;
    OnItemClickListener onname;
     Context context;
-
+    /*int siz ;
+    String gravty;
+    String colotext;
+    String bold;
+    String line;
+    String colorback;*/
     public void setOnname(OnItemClickListener onname) {
         this.onname = onname;
     }
@@ -52,6 +57,17 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
        holder.btn_menu.setImageResource(item.getSora1());
         Picasso.with(context).load(item.getPost_photo()).fit().centerCrop().into(holder.post_photo);
         Picasso.with(context).load(item.getSora()).fit().centerCrop().into(holder.sora);
+        /*colotext=item.getColortext();
+        colorback=item.getColorbackground();
+         siz = Integer.parseInt(item.getSize());
+         gravty = item.getGravty();
+         line=item.getLine();
+         bold = item.getBold();*/
+
+
+
+
+
       if (onItemClickListener != null)
        holder.btn_menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,6 +168,68 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
            time = view.findViewById(R.id.time);
            sora = view.findViewById(R.id.sora);
            words= view.findViewById(R.id.word);
+          /* words.setTextSize(siz);
+           if (gravty=="center"){words.setGravity(Gravity.CENTER);return;}
+           if (gravty=="start"){words.setGravity(Gravity.START);return;}
+           if (gravty=="end"){words.setGravity(Gravity.END);return;}
+           if (colotext=="black"){words.setTextColor(context.getResources().getColor(R.color.black));}
+           if (colotext=="red"){words.setTextColor(context.getResources().getColor(R.color.red));}
+           if (colotext=="Aqua"){words.setTextColor(context.getResources().getColor(R.color.Aqua));}
+           if (colotext=="blue"){words.setTextColor(context.getResources().getColor(R.color.blue));}
+           if (colotext=="white"){words.setTextColor(context.getResources().getColor(R.color.white));}
+           if (colotext=="green"){words.setTextColor(context.getResources().getColor(R.color.green));}
+           if (colotext=="yellow"){words.setTextColor(context.getResources().getColor(R.color.yellow));}
+           if (colotext=="azure"){words.setTextColor(context.getResources().getColor(R.color.azure));}
+           if (colotext=="silver"){words.setTextColor(context.getResources().getColor(R.color.silver));}
+           if (colotext=="orange"){words.setTextColor(context.getResources().getColor(R.color.orange));}
+           if (colotext=="purple"){words.setTextColor(context.getResources().getColor(R.color.purple));}
+           if (colotext=="pea"){words.setTextColor(context.getResources().getColor(R.color.pea));}
+           if (bold=="bold"){words.setTypeface(Typeface.DEFAULT_BOLD);}
+           else {words.setTypeface(Typeface.DEFAULT);}
+           if (line=="line"){
+               words.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);}
+            else {words.setPaintFlags(Paint.LINEAR_TEXT_FLAG);}
+           if (colorback=="white") {
+
+               words.setBackgroundResource(R.color.white);
+           }
+               else if (colorback=="red"){
+                   words.setBackgroundResource(R.color.red);}
+
+               else if (colorback=="Aqua"){
+                   words.setBackgroundResource(R.color.Aqua);}
+
+               else if (colorback=="blue"){
+                   words.setBackgroundResource(R.color.blue);}
+
+               else if (colorback=="black"){
+                   words.setBackgroundResource(R.color.black);}
+
+               else if (colorback=="green"){
+                   words.setBackgroundResource(R.color.green);}
+
+               else if (colorback=="yellow"){
+                   words.setBackgroundResource(R.color.yellow);}
+
+               else if (colorback=="azure"){
+                   words.setBackgroundResource(R.color.azure);}
+
+               else if (colorback=="silver"){
+                   words.setBackgroundResource(R.color.silver);}
+
+               else if (colorback=="orange"){
+                   words.setBackgroundResource(R.color.orange);}
+
+               else if (colorback=="purple"){
+                   words.setBackgroundResource(R.color.purple);}
+
+               else if (colorback=="pea"){
+                   words.setBackgroundResource(R.color.pea);}*/
+
+
+
+
+
            post_photo= view.findViewById(R.id.post_photo);
            btn_menu=view.findViewById(R.id.btn_menu);
         }

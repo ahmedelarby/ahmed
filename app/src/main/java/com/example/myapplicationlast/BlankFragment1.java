@@ -82,6 +82,7 @@ public class BlankFragment1 extends Fragment {
 
     DocumentReference rom = db.collection("oll user").document(auth.getCurrentUser().getUid());
     public BlankFragment1() {
+
         // Required empty public constructor
     }
 
@@ -91,7 +92,9 @@ public class BlankFragment1 extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-      View view =  inflater.inflate(R.layout.fragment_blank_fragment1, container, false);
+
+        View view =  inflater.inflate(R.layout.fragment_blank_fragment1, container, false);
+
         recyclerView = view.findViewById(R.id.rec3);
         Add_post = view.findViewById(R.id.post);
 
@@ -162,7 +165,9 @@ public class BlankFragment1 extends Fragment {
                         int id = item.getItemId();
                         switch (id){
                             case R.id.Addmenupost:
-                                post();
+                                Intent p = new Intent(getContext(),post.class);
+                                startActivity(p);
+                               // post();
                                 break;
                             case R.id.Addmenuphoto:
                                 Intent open_Stoduo = new Intent(Intent.ACTION_GET_CONTENT);
@@ -234,7 +239,10 @@ public class BlankFragment1 extends Fragment {
                             data1234.setIpAddress(ipAddress);
                             data1234.setWifiInfo(ssid);
                             data1234.setIMEIphone(IMEINumber);
-
+                            data1234.setEmail(get_Email);
+                            data1234.setGender(get_gender);
+                            data1234.setImage_profile(get_image_profile);
+                            data1234.setTime_open(time_open);
 
 
                             collectionReference.add(data1234);
