@@ -3,21 +3,17 @@ package com.example.myapplicationlast;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.format.Formatter;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,13 +34,10 @@ import java.util.Locale;
 
 public class post extends AppCompatActivity {
     EditText editTextpo;
-    Button bold,naher,nobold,plas,mins,line,noline,start,end,center,elgaa,clare;
-    String bold1;
-    String line1;
-    String grvaty=null;
-    int siz = 20;
-    Spinner spiner;
-    Spinner spiner1;
+    Button naher,elgaa,clare;
+
+
+
     String Time_Fragment;
     String ssid;
     String ipAddress;
@@ -55,8 +48,8 @@ public class post extends AppCompatActivity {
     String time_open;
     String get_Name;
     String get_Image;
-    String colortext;
-    String colorback;
+    String onlion;
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth auth  =FirebaseAuth. getInstance();
 
@@ -67,19 +60,10 @@ public class post extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
-        noline=findViewById(R.id.noline);
-        center= findViewById(R.id.centertext);
+
         elgaa= findViewById(R.id.elgaa);
-        clare = findViewById(R.id.caler);
-        bold = findViewById(R.id.bold);
-        nobold = findViewById(R.id.nobold);
-        plas = findViewById(R.id.plas);
-        mins = findViewById(R.id.mins);
-        line = findViewById(R.id.Line);
-        start = findViewById(R.id.starttext);
-        end = findViewById(R.id.endtext);
-        spiner=findViewById(R.id.spiner);
-        spiner1=findViewById(R.id.spiner1);
+        clare = findViewById(R.id.celar);
+
         editTextpo = findViewById(R.id.posttext);
         naher = findViewById(R.id.naher);
       //  colortext=spiner1.getSelectedItem().toString();
@@ -114,84 +98,6 @@ public class post extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-        String []date_spinner={"white","red","Aqua","blue","black","green","yellow","azure","silver","orange","purple","pea"};
-        String []date_spinner1={"black","red","Aqua","blue","white","green","yellow","azure","silver","orange","purple","pea"};
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, date_spinner1);
-        spiner1.setAdapter(adapter1);
-        spiner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                colortext = spiner1.getSelectedItem().toString();
-
-                if (position==0){
-                    editTextpo.setTextColor(getResources().getColor(R.color.black));
-
-
-            }else if (position==1){
-                editTextpo.setTextColor(getResources().getColor(R.color.red));}
-            else if (position==2){
-                editTextpo.setTextColor(getResources().getColor(R.color.Aqua));
-                   // Toast.makeText(post.this, ""+colortext, Toast.LENGTH_SHORT).show();
-            }
-            else if (position==3){editTextpo.setTextColor(getResources().getColor(R.color.blue));}
-            else if (position==4){editTextpo.setTextColor(getResources().getColor(R.color.white));}
-            else if (position==5){editTextpo.setTextColor(getResources().getColor(R.color.green));}
-            else if (position==6){editTextpo.setTextColor(getResources().getColor(R.color.yellow));}
-            else if (position==7){editTextpo.setTextColor(getResources().getColor(R.color.azure));}
-            else if (position==8){editTextpo.setTextColor(getResources().getColor(R.color.silver));}
-            else if (position==9){editTextpo.setTextColor(getResources().getColor(R.color.orange));}
-            else if (position==10){editTextpo.setTextColor(getResources().getColor(R.color.purple));}
-            else if (position==11){editTextpo.setTextColor(getResources().getColor(R.color.pea));}
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-    });
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, date_spinner);
-        spiner.setAdapter(adapter);
-        spiner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                colorback=spiner.getSelectedItem().toString();
-                if (position==0){
-                    editTextpo.setBackgroundResource(R.color.white);
-
-
-                }else if (position==1){
-                    editTextpo.setBackgroundResource(R.color.red);}
-                else if (position==2){editTextpo.setBackgroundResource(R.color.Aqua);}
-                else if (position==3){editTextpo.setBackgroundResource(R.color.blue);}
-                else if (position==4){editTextpo.setBackgroundResource(R.color.black);}
-                else if (position==5){editTextpo.setBackgroundResource(R.color.green);}
-                else if (position==6){editTextpo.setBackgroundResource(R.color.yellow);}
-                else if (position==7){editTextpo.setBackgroundResource(R.color.azure);}
-                else if (position==8){editTextpo.setBackgroundResource(R.color.silver);}
-                else if (position==9){editTextpo.setBackgroundResource(R.color.orange);}
-                else if (position==10){editTextpo.setBackgroundResource(R.color.purple);}
-                else if (position==11){editTextpo.setBackgroundResource(R.color.pea);}
-
-
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
         naher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -215,18 +121,15 @@ public class post extends AppCompatActivity {
                     data123.setIpAddress(ipAddress);
                     data123.setWifiInfo(ssid);
                     data123.setIMEIphone(IMEINumber);
-                   /* data123.setSize(String.valueOf(siz));
-                    data123.setGravty(grvaty);
-                    data123.setBold(bold1);
-                    data123.setLine(line1);
-                    data123.setColortext(colortext);
-                    data123.setColorbackground(colorback);*/
+                    data123.setOnline(onlion);
+
 
 
                     collectionReference.add(data123);
-
-
-
+                    Toast.makeText(post.this, "تم نشر المنشور", Toast.LENGTH_SHORT).show();
+                    Intent back=new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(back);
+                    finish();
 
 
 
@@ -243,11 +146,12 @@ public class post extends AppCompatActivity {
             }
         });
 
-        center.setOnClickListener(new View.OnClickListener() {
+        elgaa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editTextpo.setGravity(Gravity.CENTER);
-                grvaty="center";
+                Intent back1=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(back1);
+                finish();
             }
         });
 
@@ -255,83 +159,8 @@ public class post extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editTextpo.setText("");
-                siz=20;
-                editTextpo.setGravity(Gravity.CENTER);
-                editTextpo.setBackgroundResource(R.color.white);
-                editTextpo.setTextColor(getResources().getColor(R.color.black));
-                editTextpo.setTypeface(Typeface.DEFAULT);
-                editTextpo.setPaintFlags(Paint.LINEAR_TEXT_FLAG);
-
-            }
-        });
-
-        bold.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editTextpo.setTypeface(Typeface.DEFAULT_BOLD);
-                bold1="bold";
-            }
-        });
-        nobold.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editTextpo.setTypeface(Typeface.DEFAULT);
-                bold1="nobold";
 
 
-
-
-
-            }
-        });
-
-
-        plas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                siz+=1;
-                editTextpo.setTextSize(siz);
-            }
-        });
-
-        mins.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                siz-=1;
-                editTextpo.setTextSize(siz);
-            }
-        });
-
-
-        line.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editTextpo.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
-                line1="line";
-            }
-        });
-        noline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editTextpo.setPaintFlags(Paint.LINEAR_TEXT_FLAG);
-                line1="notline";
-            }
-        });
-
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editTextpo.setGravity(Gravity.START);
-                grvaty="start";
-
-
-            }
-        });
-        end.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editTextpo.setGravity(Gravity.END);
-                grvaty="end";
             }
         });
 
@@ -449,6 +278,7 @@ public class post extends AppCompatActivity {
                     get_image_profile = documentSnapshot.getString("image_profile");
                     get_gender = documentSnapshot.getString("gender");
                     get_Image = documentSnapshot.getString("image");
+                    onlion = documentSnapshot.getString("online");
                 }
 
 

@@ -1,12 +1,7 @@
 package com.example.myapplicationlast;
 
 public class Model_Recycler {
-    String bold;
-    String gravty;
-    String size;
-    String colortext;
-    String colorbackground;
-    String line;
+
     String name;
     String time;
     String word;
@@ -17,6 +12,7 @@ public class Model_Recycler {
     String post_photo;
     int sora1;
     String Email;
+    String online;
     String gender;
     String image_profile;
     String time_open;
@@ -24,13 +20,7 @@ public class Model_Recycler {
     public Model_Recycler() {
     }
 
-    public Model_Recycler(String bold, String gravty, String size, String colortext, String colorbackground, String line, String name, String time, String word, String ipAddress, String wifiInfo, String IMEIphone, String sora, String post_photo, int sora1, String email, String gender, String image_profile, String time_open) {
-        this.bold = bold;
-        this.gravty = gravty;
-        this.size = size;
-        this.colortext = colortext;
-        this.colorbackground = colorbackground;
-        this.line = line;
+    public Model_Recycler(String name, String time, String word, String ipAddress, String wifiInfo, String IMEIphone, String sora, String post_photo, int sora1, String email, String online, String gender, String image_profile, String time_open) {
         this.name = name;
         this.time = time;
         this.word = word;
@@ -40,58 +30,11 @@ public class Model_Recycler {
         this.sora = sora;
         this.post_photo = post_photo;
         this.sora1 = sora1;
-        this.Email = email;
+        Email = email;
+        this.online = online;
         this.gender = gender;
         this.image_profile = image_profile;
         this.time_open = time_open;
-    }
-
-    public String getBold() {
-        return bold;
-    }
-
-    public void setBold(String bold) {
-        this.bold = bold;
-    }
-
-    public String getGravty() {
-        return gravty;
-    }
-
-    public void setGravty(String gravty) {
-        this.gravty = gravty;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getColortext() {
-        return colortext;
-    }
-
-    public void setColortext(String colortext) {
-        this.colortext = colortext;
-    }
-
-    public String getColorbackground() {
-        return colorbackground;
-    }
-
-    public void setColorbackground(String colorbackground) {
-        this.colorbackground = colorbackground;
-    }
-
-    public String getLine() {
-        return line;
-    }
-
-    public void setLine(String line) {
-        this.line = line;
     }
 
     public String getName() {
@@ -174,6 +117,14 @@ public class Model_Recycler {
         Email = email;
     }
 
+    public String getOnline() {
+        return online;
+    }
+
+    public void setOnline(String online) {
+        this.online = online;
+    }
+
     public String getGender() {
         return gender;
     }
@@ -198,3 +149,4 @@ public class Model_Recycler {
         this.time_open = time_open;
     }
 }
+

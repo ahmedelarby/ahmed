@@ -8,28 +8,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import uk.co.senab.photoview.PhotoViewAttacher;
 
-public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
+
+public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder> {
     ArrayList<Model_Recycler>dates;
     OnItemClickListener onItemClickListener;
    OnItemClickListener onname;
     Context context;
-    /*int siz ;
-    String gravty;
-    String colotext;
-    String bold;
-    String line;
-    String colorback;*/
+    AlertDialog dialog;
     public void setOnname(OnItemClickListener onname) {
         this.onname = onname;
     }
@@ -57,13 +56,82 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
        holder.btn_menu.setImageResource(item.getSora1());
         Picasso.with(context).load(item.getPost_photo()).fit().centerCrop().into(holder.post_photo);
         Picasso.with(context).load(item.getSora()).fit().centerCrop().into(holder.sora);
-        /*colotext=item.getColortext();
-        colorback=item.getColorbackground();
-         siz = Integer.parseInt(item.getSize());
-         gravty = item.getGravty();
-         line=item.getLine();
-         bold = item.getBold();*/
+        holder.sora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              String so=item.getSora();
+                String n1 = item.getName();
+                AlertDialog.Builder builder =new AlertDialog.Builder(context);
+                View view = LayoutInflater.from(context).inflate(R.layout.fillphoto,null);
+                builder.setTitle("الصوره الشخصيه"+" "+n1);
+                ProgressBar bar = view.findViewById(R.id.progress_photo);
+                ImageView imageView=view.findViewById(R.id.fillphoto);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        imageView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
+                        PhotoViewAttacher PV = new PhotoViewAttacher(imageView);
+                        PV.setMaximumScale(10);
+                        PV.update();
 
+
+                    }
+                });
+
+                Picasso.with(context).load(so).fit().centerCrop().into(imageView);
+                bar.setVisibility(View.GONE);
+
+
+
+                builder.setView(view);
+                dialog = builder.create();
+                dialog.show();
+                bar.setVisibility(View.VISIBLE);
+
+
+
+            }
+        });
+holder.post_photo.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        String po=item.getPost_photo();
+        String n = item.getName();
+            if (po==null){}
+            else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                View view1 = LayoutInflater.from(context).inflate(R.layout.fillphoto, null);
+                builder.setTitle("صوره المنشور"+" "+n);
+                ProgressBar bar = view1.findViewById(R.id.progress_photo);
+                ImageView imageView = view1.findViewById(R.id.fillphoto);
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //imageView.setSystemUiVisibility( View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
+                        PhotoViewAttacher PV = new PhotoViewAttacher(imageView);
+                        PV.setMaximumScale(10);
+                        PV.update();
+                    }
+                });
+                Picasso.with(context).load(po).fit().centerCrop().into(imageView);
+                bar.setVisibility(View.GONE);
+                builder.setView(view1);
+                dialog = builder.create();
+                dialog.show();
+                bar.setVisibility(View.VISIBLE);
+
+            }
+
+
+
+
+
+
+
+
+
+    }
+});
 
 
 
@@ -88,6 +156,7 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
                                 String gender=  item.getGender();
                                 String email=  item.getEmail();
                                 String sora=  item.getSora();
+                                String online=item.getOnline();
                                 String background=  item.getImage_profile();
                                 String timeopen= item.getTime_open();
                                 Intent profil = new Intent(context,Show_Profile.class);
@@ -97,7 +166,7 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
                                 profil.putExtra("email",email);
                                 profil.putExtra("background",background);
                                 profil.putExtra("timeopen",timeopen);
-
+                                profil.putExtra("online",online);
                                 context.startActivity(profil);
 
                                 break;
@@ -137,6 +206,7 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
                String sora=  item.getSora();
                String background=  item.getImage_profile();
                String timeopen= item.getTime_open();
+               String online1= item.getOnline();
                Intent profil = new Intent(context,Show_Profile.class);
                profil.putExtra("name",name);
                profil.putExtra("image",sora);
@@ -144,6 +214,7 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
                profil.putExtra("email",email);
                profil.putExtra("background",background);
                profil.putExtra("timeopen",timeopen);
+               profil.putExtra("online",online1);
 
                context.startActivity(profil);
            }
@@ -153,7 +224,14 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
     public int getItemCount() {
         return dates.size();
     }
-     public class ViewHolder extends RecyclerView.ViewHolder{
+
+
+
+
+
+
+
+            public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name;
         TextView time;
          ImageView sora;
@@ -168,68 +246,6 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
            time = view.findViewById(R.id.time);
            sora = view.findViewById(R.id.sora);
            words= view.findViewById(R.id.word);
-          /* words.setTextSize(siz);
-           if (gravty=="center"){words.setGravity(Gravity.CENTER);return;}
-           if (gravty=="start"){words.setGravity(Gravity.START);return;}
-           if (gravty=="end"){words.setGravity(Gravity.END);return;}
-           if (colotext=="black"){words.setTextColor(context.getResources().getColor(R.color.black));}
-           if (colotext=="red"){words.setTextColor(context.getResources().getColor(R.color.red));}
-           if (colotext=="Aqua"){words.setTextColor(context.getResources().getColor(R.color.Aqua));}
-           if (colotext=="blue"){words.setTextColor(context.getResources().getColor(R.color.blue));}
-           if (colotext=="white"){words.setTextColor(context.getResources().getColor(R.color.white));}
-           if (colotext=="green"){words.setTextColor(context.getResources().getColor(R.color.green));}
-           if (colotext=="yellow"){words.setTextColor(context.getResources().getColor(R.color.yellow));}
-           if (colotext=="azure"){words.setTextColor(context.getResources().getColor(R.color.azure));}
-           if (colotext=="silver"){words.setTextColor(context.getResources().getColor(R.color.silver));}
-           if (colotext=="orange"){words.setTextColor(context.getResources().getColor(R.color.orange));}
-           if (colotext=="purple"){words.setTextColor(context.getResources().getColor(R.color.purple));}
-           if (colotext=="pea"){words.setTextColor(context.getResources().getColor(R.color.pea));}
-           if (bold=="bold"){words.setTypeface(Typeface.DEFAULT_BOLD);}
-           else {words.setTypeface(Typeface.DEFAULT);}
-           if (line=="line"){
-               words.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);}
-            else {words.setPaintFlags(Paint.LINEAR_TEXT_FLAG);}
-           if (colorback=="white") {
-
-               words.setBackgroundResource(R.color.white);
-           }
-               else if (colorback=="red"){
-                   words.setBackgroundResource(R.color.red);}
-
-               else if (colorback=="Aqua"){
-                   words.setBackgroundResource(R.color.Aqua);}
-
-               else if (colorback=="blue"){
-                   words.setBackgroundResource(R.color.blue);}
-
-               else if (colorback=="black"){
-                   words.setBackgroundResource(R.color.black);}
-
-               else if (colorback=="green"){
-                   words.setBackgroundResource(R.color.green);}
-
-               else if (colorback=="yellow"){
-                   words.setBackgroundResource(R.color.yellow);}
-
-               else if (colorback=="azure"){
-                   words.setBackgroundResource(R.color.azure);}
-
-               else if (colorback=="silver"){
-                   words.setBackgroundResource(R.color.silver);}
-
-               else if (colorback=="orange"){
-                   words.setBackgroundResource(R.color.orange);}
-
-               else if (colorback=="purple"){
-                   words.setBackgroundResource(R.color.purple);}
-
-               else if (colorback=="pea"){
-                   words.setBackgroundResource(R.color.pea);}*/
-
-
-
-
-
            post_photo= view.findViewById(R.id.post_photo);
            btn_menu=view.findViewById(R.id.btn_menu);
         }
@@ -237,6 +253,20 @@ public class ShowAdabter extends RecyclerView.Adapter<ShowAdabter.ViewHolder>{
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

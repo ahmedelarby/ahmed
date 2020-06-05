@@ -2,6 +2,7 @@ package com.example.myapplicationlast;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,12 +18,13 @@ public class Show_Profile extends AppCompatActivity {
     TextView Email_profil;
     TextView gender_profil;
     TextView namber_phone;
+    TextView on ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show__profile);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);
-
+        on = findViewById(R.id.on);
         name_profil= findViewById(R.id.name_profil);
         photo_profile= findViewById(R.id.photo_profile);
         Image_Profil_back= findViewById(R.id.Image_Profil_back);
@@ -34,9 +36,11 @@ public class Show_Profile extends AppCompatActivity {
         String sora =intent.getStringExtra("image");
         String gender1=intent.getStringExtra("gender");
         String time_open=intent.getStringExtra("timeopen");
+        String online=intent.getStringExtra("online");
         String Email=intent.getStringExtra("email");
         String background=intent.getStringExtra("background");
         Email_profil.setText(Email  );
+        on.setText(online);
         gender_profil.setText(gender1);
         namber_phone.setText(time_open);
         name_profil.setText(name);
@@ -53,13 +57,25 @@ public class Show_Profile extends AppCompatActivity {
             else {Image_Profil_back.setImageResource(R.drawable.b);}
 
 
+name_profil.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+
+    }
+});
 
 
 
 
 
+        photo_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
+            }
+        });
 
 
 

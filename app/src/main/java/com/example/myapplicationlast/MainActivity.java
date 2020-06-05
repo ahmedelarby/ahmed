@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      StorageReference mStorageRef2;
     DocumentReference rom = db.collection("oll user").document(auth.getCurrentUser().getUid());
     DocumentReference rom1 = db.collection("oll user").document(auth.getCurrentUser().getUid());
-    DocumentReference rom2 = db.collection("oll user_Profil back_ground").document(auth.getCurrentUser().getUid());
+    //DocumentReference rom2 = db.collection("oll user_Profil back_ground").document(auth.getCurrentUser().getUid());
     String  get_Name;
     String Time_Fragment1;
     @Override
@@ -297,6 +297,13 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
         drawerLayout.closeDrawer(GravityCompat.START);
 
          if (menuItem.getItemId()==R.id.sign_out){
+
+             HashMap<String,String> m = new HashMap<>();
+             m.put("online","off");
+             rom141.set(m, SetOptions.merge());
+
+
+
             FirebaseAuth.getInstance().signOut();
             Intent out = new Intent(MainActivity.this, login.class);
 
@@ -438,13 +445,7 @@ chenge_back_grund.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (online11=="on"){
-            HashMap<String,String> map11 = new HashMap<>();
-            map11.put("online","off");
-            rom141.set(map11,SetOptions.merge());
 
-
-        }
     }
 
 

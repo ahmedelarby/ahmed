@@ -51,7 +51,13 @@ AlertDialog dialog_updet_password;
         setContentView(R.layout.activity_settings);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);
 
-    MobileAds.initialize(this,"ca-app-pub-8403267465820162~2686166767");
+
+        chenge_name =findViewById(R.id.chenge_name);
+        pass_update= findViewById(R.id.pass_update);
+        Email_update = findViewById(R.id.Email_update);
+
+
+        MobileAds.initialize(this,"ca-app-pub-8403267465820162~2686166767");
 
         adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -65,9 +71,8 @@ AlertDialog dialog_updet_password;
 
 
 
-        chenge_name =findViewById(R.id.chenge_name);
-        pass_update= findViewById(R.id.pass_update);
-        Email_update = findViewById(R.id.Email_update);
+
+
         Email_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -283,7 +288,7 @@ AlertDialog dialog_updet_password;
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-
+                            Toast.makeText(Settings.this, "", Toast.LENGTH_SHORT).show();
 
 
 
@@ -321,9 +326,7 @@ AlertDialog dialog_updet_password;
     protected void onStart() {
         super.onStart();
 
-        HashMap<String,String> map1415 = new HashMap<>();
-        map1415.put("online","on");
-        rom1415.set(map1415, SetOptions.merge());
+
 
 
 

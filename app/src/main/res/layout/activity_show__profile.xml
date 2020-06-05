@@ -88,8 +88,36 @@
         app:layout_constraintTop_toBottomOf="@id/Email_desing"
         android:layout_marginTop="5dp"
         android:textSize="20sp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:id="@+id/gender_desind"/>
+
+    <TextView
+        android:id="@+id/case_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        android:text="case "
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/on"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gender_desind" />
+
+    <TextView
+        android:id="@+id/on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="123"
+        android:layout_marginEnd="240dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/case_on"
+        app:layout_constraintTop_toBottomOf="@id/gender_profil" />
+
     <TextView
         android:textStyle="bold"
         android:layout_width="wrap_content"
@@ -108,21 +136,21 @@
         android:id="@+id/phone_desing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:text="type open"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/name_profil"
-        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gender_desind" />
+        app:layout_constraintTop_toBottomOf="@+id/case_on" />
 
     <TextView
         android:id="@+id/namber_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="40dp"
         android:text="01001805905"
         android:textSize="20sp"
@@ -130,24 +158,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/phone_desing"
-        app:layout_constraintTop_toBottomOf="@id/gender_profil" />
+        app:layout_constraintTop_toBottomOf="@+id/on" />
 
     <TextView
-        android:gravity="center"
+        android:id="@+id/malomat2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:gravity="center"
         android:text="المعلومات الاساسيه "
         android:textColor="#FA5408E4"
         android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/namber_phone"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/malomat2"/>
-
-
-
-
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/namber_phone" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

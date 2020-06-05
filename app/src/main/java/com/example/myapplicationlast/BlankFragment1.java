@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -56,7 +57,7 @@ import static android.content.Context.WIFI_SERVICE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BlankFragment1 extends Fragment {
+public class BlankFragment1 extends Fragment  {
     AlertDialog dialog ,dilog1;
     String Time_Fragment;
     RecyclerView recyclerView;
@@ -74,9 +75,10 @@ public class BlankFragment1 extends Fragment {
     String get_image_profile;
     String get_gender;
     String time_open;
+    String onl;
     StorageReference mStorageRef;
     CollectionReference collectionReference1 = db.collection("oll user_post_pohto");
-
+    SearchView searchView;
     String get_Image;
     FirebaseAuth auth  =FirebaseAuth. getInstance();
 
@@ -95,7 +97,10 @@ public class BlankFragment1 extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_blank_fragment1, container, false);
 
+
         recyclerView = view.findViewById(R.id.rec3);
+
+
         Add_post = view.findViewById(R.id.post);
 
         adapter = new ShowAdabter(idates,getContext());
@@ -109,7 +114,7 @@ public class BlankFragment1 extends Fragment {
         adapter.setOnname(new ShowAdabter.OnItemClickListener() {
             @Override
             public void onItemClick() {
-                Toast.makeText(getContext(), "sor", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getContext(), "sor", Toast.LENGTH_SHORT).show();
             }
         });
         linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
@@ -202,6 +207,7 @@ public class BlankFragment1 extends Fragment {
 
 
 
+
         return view;
 
 
@@ -243,7 +249,7 @@ public class BlankFragment1 extends Fragment {
                             data1234.setGender(get_gender);
                             data1234.setImage_profile(get_image_profile);
                             data1234.setTime_open(time_open);
-
+                            data1234.setOnline(onl);
 
                             collectionReference.add(data1234);
 
@@ -375,6 +381,7 @@ rom.addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 get_image_profile = documentSnapshot.getString("image_profile");
                 get_gender = documentSnapshot.getString("gender");
                 get_Image = documentSnapshot.getString("image");
+                 onl = documentSnapshot.getString("online");
         }
 
 
@@ -426,6 +433,7 @@ collectionReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
 
 
     }
+
 
 
 }
